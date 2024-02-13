@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fitness Tracker (Apple Watch)</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="apple-watch">
+  <div class="header">
+    <h1>Fitness Tracker</h1>
+  </div>
+  <div class="main">
+    <div class="user-info">
+      <h2>Hello, <span id="userName"></span>!</h2>
+    </div>
+    <div class="graph">
+      <canvas id="progressCircle" width="200" height="200"></canvas>
+    </div>
+    <div class="buttons">
+      <button id="receiveNotificationsBtn">Receive Goal Notifications</button>
+      <button id="respondWithEmojiBtn">Respond with Emoji</button>
+    </div>
+  </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.3.2/socket.io.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const socket = io();
+
+    // Function to update user name in UI
+    function updateUserName(name) {
+      document.getElementById('userName').innerText = name;
+    }
+
+    // Set up event listeners for buttons
+    document.getElementById('receiveNotificationsBtn').addEventListener('click', () => {
+      // Implement logic for receiving goal notifications
+    });
+
+    document.getElementById('respondWithEmojiBtn').addEventListener('click', () => {
+      // Implement logic for responding with emoji
+    });
+
+    // Listen for events from server
+    socket.on('userName', updateUserName);
+  });
+</script>
+</body>
+</html>
